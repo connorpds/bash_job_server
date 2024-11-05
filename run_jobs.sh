@@ -4,12 +4,12 @@ configs_toml=$3
 
 
 #kernelslist.g files 
-kernelslists=()
+workloads=()
 #workload names -- this includes an identifier for the dataset
 workload_names=()
 workload_ct=$(tomlq -r '.workloads | length' $workloads_toml)
 for (( i=0; i<workload_ct; i++ )); do 
-  kernelslists+=("$(tomlq -r ".workloads[$i].kernelslist" $workloads_toml)")
+  workloads+=("$(tomlq -r ".workloads[$i].kernelslist" $workloads_toml)")
   workload_names+=("$(tomlq -r ".workloads[$i].name" $workloads_toml)")
 done
 
@@ -31,18 +31,26 @@ done
 output_filenames=() #names of output files 
 run_incantations=() #generated incantations to run the simulator
 total_combinations=$(( configs_ct * workload_ct )) #number of combos we expect 
-#TODO: convolve the configs with the workloads (nested for), generating both
-      # the incantations required for the runs and the output filenames
+# Convolve the configs with the workloads (nested for), generating both
+# the incantation and the output filename for each combination 
+for (( i=0; i<configs_ct; i++ )); do 
+  for (( j=0; j<workload_ct; j++ )); do 
+    # generate our run commands 
+    run_incantations+=("./$accel_sim 
+                            -trace ${workloads[j]} 
+                            -config ${gpgpu_sim_configs[i]}
+                            -config ${accel_sim_configs[i]}")
+    # generate our output filenames  
+    output_filenames+=("${workload_names[j]}_${config_names[i]}_results.txt")
+  done
+done
 
 
-# eval "$command"
-function run_tasks(){
-  the_args=$1
-  for arg in "${the_args[@]}"; do 
-    ./$accel_sim "$arg"   
-  done 
+# run all the commands :)
+function run_benchmarks(){
+  for (( i=0; i<total_combinations; i++ )); do 
+    echo "${run_incantations[i]} > ${output_filenames[i]}"
+  done | parallel -j 72
 }
 
 
-read_workloads
-run_tasks 
