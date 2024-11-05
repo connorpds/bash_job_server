@@ -1,0 +1,4 @@
+[[configs]]
+name=BASELINE
+gpgpu_sim_config="/pool/connor/accel-sim-framework/gpu-simulator/gpgpu-sim/configs/tested-cfgs/SM7_QV100/gpgpusim.config"
+accel_sim_config="/pool/connor/accel-sim-framework/gpu-simulator/configs/tested-cfgs/SM7_QV100/trace.config" 

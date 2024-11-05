@@ -1,7 +1,7 @@
 accel_sim=$1
 workloads_toml=$2
 configs_toml=$3
-tracking_file ="./jobs_tracking.dat" 
+tracking_file ="./job_tracking/jobs_tracking.dat" 
 
 #kernelslist.g files 
 workloads=()
@@ -23,9 +23,9 @@ config_names=()
 #number of configs present, for iterating across them
 configs_ct=$(tomlq -r '.configs | length' $configs_toml) 
 for (( i=0; i<configs_ct; i++ )); do 
+  config_names+=("$(tomlq -r ".configs[$i].name")")
   gpgpu_sim_configs+=("$(tomlq -r ".configs[$i].gpgpu_sim_config")")
   accel_sim_configs+=("$(tomlq -r ".configs[$i].accel_sim_config")")
-  config_names+=("$(tomlq -r ".configs[$i].name")")
 done
 
 output_filenames=() #names of output files 
@@ -36,9 +36,9 @@ total_combinations=$(( configs_ct * workload_ct )) #number of combos we expect
 for (( i=0; i<configs_ct; i++ )); do 
   for (( j=0; j<workload_ct; j++ )); do 
     # generate our run commands 
-    run_incantations+=("./$accel_sim 
-                            -trace ${workloads[j]} 
-                            -config ${gpgpu_sim_configs[i]}
+    run_incantations+=("./$accel_sim \
+                            -trace ${workloads[j]} \
+                            -config ${gpgpu_sim_configs[i]} \
                             -config ${accel_sim_configs[i]}")
     # generate our output filenames  
     output_filenames+=("${workload_names[j]}_${config_names[i]}")
