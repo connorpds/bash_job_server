@@ -1,4 +1,4 @@
-accel_sim=$1
+accel_sim="/pool/connor/accel-sim-framework/gpu-simulator/bin/release/accel-sim.out"
 workloads_toml=$2
 configs_toml=$3
 tracking_file ="./job_tracking/jobs_tracking.dat" 
@@ -56,7 +56,15 @@ function run_benchmarks(){
     #record the job id 
     job_pids+=($!)
     #write the jobid and workload/configuration
-    echo -e "${job_pids[i]}\t${output_filenames[i]}" >> $tracking_file
+    id="${job_pids[i]}"
+    experiment="${output_filenames[i]}"
+    echo "[[job_ids]]" >> $tracking_file
+    echo "id=$id" >> $tracking_file
+    echo "experiment=$experiment" >> $tracking_file
+    
+    echo "STARTED" 
+    echo -e "Experiment:\tJob_PID:"
+    echo -e "$experiment\t$id"
 
     #make sure we aren't at the job limit 
     while (( $(jobs -r | wc -l) >= max_jobs )); do 
