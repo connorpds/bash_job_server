@@ -55,8 +55,8 @@ function run_benchmarks(){
     ${run_incantations[i]} > "${output_filenames[i]}_results.txt" &
     #record the job id 
     job_pids+=($!)
-    #write the jobid and 
-    echo "${job_pids[i]} ${output_filenames[i]}" >> $tracking_file
+    #write the jobid and workload/configuration
+    echo -e "${job_pids[i]}\t${output_filenames[i]}" >> $tracking_file
 
     #make sure we aren't at the job limit 
     while (( $(jobs -r | wc -l) >= max_jobs )); do 
