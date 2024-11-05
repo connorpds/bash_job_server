@@ -7,5 +7,8 @@ int main(int argc, char* argv[]){
   else {
     std::cout << argv[1] << "\n";
   }
+  int* shrek[5];
+  int donkey = *shrek[5];
+  std::cout << donkey;
   return 0;
 }
