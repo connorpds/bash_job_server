@@ -1,7 +1,7 @@
 accel_sim=$1
 workloads_toml=$2
 configs_toml=$3
-
+tracking_file ="./jobs_tracking.dat" 
 
 #kernelslist.g files 
 workloads=()
@@ -41,16 +41,28 @@ for (( i=0; i<configs_ct; i++ )); do
                             -config ${gpgpu_sim_configs[i]}
                             -config ${accel_sim_configs[i]}")
     # generate our output filenames  
-    output_filenames+=("${workload_names[j]}_${config_names[i]}_results.txt")
+    output_filenames+=("${workload_names[j]}_${config_names[i]}")
   done
 done
 
 
 # run all the commands :)
+job_pids=()
+max_jobs=72
 function run_benchmarks(){
   for (( i=0; i<total_combinations; i++ )); do 
-    echo "${run_incantations[i]} > ${output_filenames[i]}"
-  done | parallel -j 72
+    #run the simulation as a background process 
+    ${run_incantations[i]} > "${output_filenames[i]}_results.txt" &
+    #record the job id 
+    job_pids+=($!)
+    #write the jobid and 
+    echo "${job_pids[i]} ${output_filenames[i]}" >> $tracking_file
+
+    #make sure we aren't at the job limit 
+    while (( $(jobs -r | wc -l) >= max_jobs )); do 
+      wait -n #wait for another job to complete before continuing
+    done
+  done
 }
 
 
