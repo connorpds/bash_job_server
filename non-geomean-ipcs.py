@@ -33,36 +33,38 @@ def extract_benchmark_and_config(filepath):
 
 
 def process_file(filename):
-    pattern = re.compile(r'gpu_tot_ipc\s*=\s*([^\s#]+)', re.IGNORECASE)
-    last_value = None
-    try:
-        with open(filename, 'r') as file:
-            for line_number, line in enumerate(file, 1):
-                match = pattern.search(line)
-                if match:
-                    last_value_str = match.group(1)
-                    # Attempt to convert to float or int
-                    try:
-                        if '.' in last_value_str:
-                            last_value = float(last_value_str)
-                        else:
-                            last_value = int(last_value_str)
-                    except ValueError:
-                        # If conversion fails, keep it as a string
-                        last_value = last_value_str
-    except FileNotFoundError:
-        print(f"Error: The file '{filename}' does not exist.")
-        return None
-    except Exception as e:
-        print(f"An error occurred: {e}")
-        return None
+    gpu_tot_sim_cycle_sum = 0
+    gpu_tot_sim_insn_sum = 0
 
+    try:
+        with open(filename, 'r') as f:
+            for line in f:
+                line = line.strip()
+                if line.startswith('gpu_tot_sim_cycle ='):
+                    parts = line.split('=')
+                    if len(parts) == 2:
+                        value = int(parts[1].strip())
+                        gpu_tot_sim_cycle_sum += value
+                elif line.startswith('gpu_tot_sim_insn ='):
+                    parts = line.split('=')
+                    if len(parts) == 2:
+                        value = int(parts[1].strip())
+                        gpu_tot_sim_insn_sum += value
+    except FileNotFoundError:
+        print(f"Error: File '{filename}' not found.", file=sys.stderr)
+        return
+
+    if gpu_tot_sim_cycle_sum == 0:
+        total_ipc = 0.0
+    else:
+        total_ipc = gpu_tot_sim_insn_sum / gpu_tot_sim_cycle_sum
 
     #benchmark_name = extract_benchmark_name(filename)
     benchmark_name, config_name = extract_benchmark_and_config(filename);
 
+
     # Print the results as a space-delimited CSV row
-    print(f"{benchmark_name},\t {config_name},\t {last_value}")
+    print(f"{benchmark_name},\t {config_name},\t\t {gpu_tot_sim_insn_sum},\t\t {gpu_tot_sim_cycle_sum},\t {total_ipc}")
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
