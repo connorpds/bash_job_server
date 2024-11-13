@@ -65,9 +65,9 @@ for (( i=0; i<total_combinations; i++ )); do
   #write the jobid and workload/configuration
   id="${job_pids[i]}"
   experiment="${output_filenames[i]}"
-  echo "[[job_ids]]" >> $tracking_file
-  echo "id=$id" >> $tracking_file
-  echo "experiment=$experiment" >> $tracking_file
+  #echo "[[job_ids]]" >> $tracking_file
+  #echo "id=$id" >> $tracking_file
+  #echo "experiment=$experiment" >> $tracking_file
   
   echo "STARTED" 
   echo -e "Experiment: $experiment\t\tJob_PID: $id"
