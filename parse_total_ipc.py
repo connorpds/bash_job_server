@@ -32,7 +32,7 @@ def extract_benchmark_and_config(filepath):
         return None, None  # Return None if the pattern doesn't match
 
 
-def process_file(filename):
+def process_simfile(filename):
     pattern = re.compile(r'gpu_tot_ipc\s*=\s*([^\s#]+)', re.IGNORECASE)
     last_value = None
     try:
@@ -56,13 +56,36 @@ def process_file(filename):
     except Exception as e:
         print(f"An error occurred: {e}")
         return None
+    return last_value
 
 
-    #benchmark_name = extract_benchmark_name(filename)
-    benchmark_name, config_name = extract_benchmark_and_config(filename);
+def calculate_ipc_improvement(workload, config, kernel_ipcs):
+    #print(workload)
+    #print(kernel_ipcs)
+    #print("_________________")
+    baseline_ipc = kernel_ipcs[(workload, 'BASELINE')]
+    augment_ipc = kernel_ipcs[(workload, config)]
+    if (baseline_ipc != 0):
+        return augment_ipc / baseline_ipc
+    else:
+        return 1.0
 
-    # Print the results as a space-delimited CSV row
-    print(f"{benchmark_name},\t {config_name},\t {last_value}")
+def generate_kernel_improvements(simfiles):
+    kernel_ipcs = dict()
+    for filename in simfiles:
+        benchmark_name, config_name = extract_benchmark_and_config(filename)
+        total_ipc = process_simfile(filename)
+        name_conf = (benchmark_name, config_name)
+        kernel_ipcs[name_conf] = total_ipc
+        
+    improvements = dict()
+    for workload, config in kernel_ipcs:
+        ipcs = kernel_ipcs[(workload, config)]
+        n_conf = (workload, config)
+        improvements[n_conf] = calculate_ipc_improvement(workload, config, kernel_ipcs)
+    #print (improvements)
+    return improvements
+
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
@@ -70,7 +93,14 @@ if __name__ == '__main__':
         sys.exit(1)
 
     
-    print("Workload\t Configuration\t\t Instructions Executed\t Total Cycles\t, IPC")
-    for filename in sys.argv[1:]:
-        process_file(filename)
-
+    print("Workload\t Configuration\t, IPC Improvement")
+    
+    improvements = generate_kernel_improvements(sys.argv[1:])
+    
+    for workload, config in improvements:
+        n_conf = (workload, config)
+        delta = improvements[n_conf]
+        workload = n_conf[0]
+        config = n_conf[1]
+         # Print the results as a space-delimited CSV row
+        print(f"{workload},\t {config},\t {delta}")
