@@ -1,0 +1,64 @@
+STARTED
+Experiment: cutcp_BASELINE		Job_PID: 976078
+STARTED
+Experiment: histo_BASELINE		Job_PID: 976082
+STARTED
+Experiment: mri-gridding_BASELINE		Job_PID: 976086
+STARTED
+Experiment: mri-q_BASELINE		Job_PID: 976090
+STARTED
+Experiment: sad_BASELINE		Job_PID: 976094
+STARTED
+Experiment: sgemm_BASELINE		Job_PID: 976098
+STARTED
+Experiment: spmv_BASELINE		Job_PID: 976102
+STARTED
+Experiment: stencil_BASELINE		Job_PID: 976107
+STARTED
+Experiment: cutcp_VELRR_ONLY		Job_PID: 976111
+STARTED
+Experiment: histo_VELRR_ONLY		Job_PID: 976115
+STARTED
+Experiment: mri-gridding_VELRR_ONLY		Job_PID: 976119
+STARTED
+Experiment: mri-q_VELRR_ONLY		Job_PID: 976123
+STARTED
+Experiment: sad_VELRR_ONLY		Job_PID: 976127
+STARTED
+Experiment: sgemm_VELRR_ONLY		Job_PID: 976131
+STARTED
+Experiment: spmv_VELRR_ONLY		Job_PID: 976135
+STARTED
+Experiment: stencil_VELRR_ONLY		Job_PID: 976139
+STARTED
+Experiment: cutcp_VELRU_L1		Job_PID: 976143
+STARTED
+Experiment: histo_VELRU_L1		Job_PID: 976147
+STARTED
+Experiment: mri-gridding_VELRU_L1		Job_PID: 976151
+STARTED
+Experiment: mri-q_VELRU_L1		Job_PID: 976155
+STARTED
+Experiment: sad_VELRU_L1		Job_PID: 976159
+STARTED
+Experiment: sgemm_VELRU_L1		Job_PID: 976163
+STARTED
+Experiment: spmv_VELRU_L1		Job_PID: 976168
+STARTED
+Experiment: stencil_VELRU_L1		Job_PID: 976172
+STARTED
+Experiment: cutcp_VELRR_VELRU_L1		Job_PID: 976176
+STARTED
+Experiment: histo_VELRR_VELRU_L1		Job_PID: 976182
+STARTED
+Experiment: mri-gridding_VELRR_VELRU_L1		Job_PID: 976188
+STARTED
+Experiment: mri-q_VELRR_VELRU_L1		Job_PID: 976197
+STARTED
+Experiment: sad_VELRR_VELRU_L1		Job_PID: 976206
+STARTED
+Experiment: sgemm_VELRR_VELRU_L1		Job_PID: 976212
+STARTED
+Experiment: spmv_VELRR_VELRU_L1		Job_PID: 976218
+STARTED
+Experiment: stencil_VELRR_VELRU_L1		Job_PID: 976224

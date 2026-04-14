@@ -1,0 +1,9 @@
+[[workloads]] 
+name = "hotspot-1024"
+kernelslist = "/pool/connor/accel-sim-framework/hw_run/rodinia-3.1/11.0/hotspot-rodinia-3.1/1024_2_2___data_temp_1024___data_power_1024_output_out/traces/kernelslist.g"
+
+
+[[workloads]] 
+name = "hotspot-512"
+kernelslist = "/pool/connor/accel-sim-framework/hw_run/rodinia-3.1/11.0/hotspot-rodinia-3.1/512_2_2___data_temp_512___data_power_512_output_out/traces/kernelslist.g"
+

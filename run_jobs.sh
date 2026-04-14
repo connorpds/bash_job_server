@@ -3,7 +3,14 @@ workloads_toml=$1
 configs_toml=$2
 output_dir=$3
 tracking_file=$4
-max_jobs=72
+max_jobs=160
+
+#TODO#TODO#TODO: UPDATE THIS AND WORKLOADS/*.TOML AND CONFIGS/*.TOML TO REFLECT FILE LOCATIONS ON GLAURUNG!
+
+
+MAX_KB_RESIDENT=167772160
+
+ulimit -m $MAX_KB_RESIDENT
 
 #kernelslist.g files 
 workloads=()
@@ -59,7 +66,7 @@ fi
   
 for (( i=0; i<total_combinations; i++ )); do 
   #run the simulation as a background process 
-  ${run_incantations[i]} > "$output_dir/${output_filenames[i]}.dat" &
+  nice -20 ${run_incantations[i]} > "$output_dir/${output_filenames[i]}.dat" &
   #record the job id 
   job_pids+=($!)
   #write the jobid and workload/configuration

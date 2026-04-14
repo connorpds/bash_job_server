@@ -1,0 +1,149 @@
+#!/usr/bin/env python3
+
+import sys
+import re
+import os
+
+def extract_benchmark_name(filename):
+    # Extract the substring up to the first underscore
+    idx = filename.find('.')
+    if idx == -1:
+        benchmark_name = filename
+    else:
+        benchmark_name = filename[:idx]
+        # If the underscore is immediately preceded by a hyphen, omit the hyphen
+        if benchmark_name.endswith('-'):
+            benchmark_name = benchmark_name[:-1]
+    return benchmark_name
+
+
+def extract_benchmark_and_config(filepath):
+    filename = os.path.basename(filepath)
+    # Define the regular expression pattern
+    pattern = r"(.+?)_(BASELINE|VELRR_ONLY|VELRR_VELRU_L1|VELRU_L1)\.dat"
+    
+    # Match the pattern against the filename
+    match = re.match(pattern, filename)
+    if match:
+        benchmark_name = match.group(1)  # Extracts BENCHMARK-NAME
+        config_name = match.group(2)     # Extracts CONFIG
+        return benchmark_name, config_name
+    else:
+        return None, None  # Return None if the pattern doesn't match
+
+def parse_cycle_inst_cts(filename):
+    cycle_cts = []
+    inst_cts = []
+    try:
+        with open(filename, 'r') as f:
+            for line in f:
+                line = line.strip()
+                if line.startswith('gpu_tot_sim_cycle ='):
+                    parts = line.split('=')
+                    if len(parts) == 2:
+                        value = int(parts[1].strip())
+                        #gpu_tot_sim_cycle_sum += value
+                        cycle_cts.append(value)
+                elif line.startswith('gpu_tot_sim_insn ='):
+                    parts = line.split('=')
+                    if len(parts) == 2:
+                        value = int(parts[1].strip())
+                        #gpu_tot_sim_insn_sum += value
+                        inst_cts.append(value)
+                        
+    except FileNotFoundError:
+        print(f"Error: File '{filename}' not found.", file=sys.stderr)
+        return
+
+    return cycle_cts, inst_cts
+
+#called by process_kernel_file 
+def generate_kernel_ipcs(filename):
+    kernel_ipcs = list()
+    cycles, insts = parse_cycle_inst_cts(filename)
+    #calculate per-kernel ipcs 
+    zipped = zip(cycles, insts)
+    for cycle_ct, inst_ct in zipped: 
+        if cycle_ct == 0:
+            kernel_ipcs.append(0)
+        else:
+            kernel_ipcs.append(inst_ct / cycle_ct)
+    return kernel_ipcs
+
+
+
+
+def process_kernel_file(filename, workloads_ipc_tables):
+    benchmark_name, config = extract_benchmark_and_config(filename);
+    
+    kernel_ipcs = generate_kernel_ipcs(filename)
+    
+    if benchmark_name in workloads_ipc_tables:
+        #append config, ipcs entry 
+        workloads_ipc_tables[benchmark_name][config] = kernel_ipcs
+    else:
+        workloads_ipc_tables[benchmark_name] = {}
+        workloads_ipc_tables[benchmark_name][config] = kernel_ipcs
+    #correct 
+    #print(workloads_ipc_tables[benchmark_name][config])
+    return benchmark_name, config
+
+#called by calculate_ratio_geomean
+def calculate_ipc_ratios_over_bl(workload, config, workloads_ipc_tables):
+    ipcs_over_bl = list()
+    config_ipcs = workloads_ipc_tables[workload][config]
+    baseline_ipcs = workloads_ipc_tables[workload]["BASELINE"] 
+    for cipc, blipc in zip(config_ipcs, baseline_ipcs):
+        if blipc != 0 and config != "BASELINE":
+            ipc_ratio = cipc / blipc 
+        elif config == "BASELINE":
+            ipc_ratio = 1 
+        else:
+            ipc_ratio = 0     
+        ipcs_over_bl.append(ipc_ratio)
+    #correct 
+    #print (ipcs_over_bl)
+    return ipcs_over_bl 
+
+#called by process_kernels
+def calculate_ratio_geomean(workload, config, workloads_ipc_tables):
+    geomean = 0
+    ipc_ratios = calculate_ipc_ratios_over_bl(workload, config, workloads_ipc_tables)
+    #print(ipc_ratios)
+    n = len(ipc_ratios)
+    geomean_inter_agg = 1;
+    for ratio in ipc_ratios:
+        geomean_inter_agg *= ratio; 
+    #now take nth root 
+    if n > 0:
+        geomean = geomean_inter_agg ** (1/n) 
+    print(geomean)
+    return geomean 
+
+def process_kernels(kernel_files):
+    workloads_ipc_tables = dict()
+    workloads_configs = list()
+    #get all the benchmark and config names, generate + insert kernel ipcs
+    for filename in kernel_files:
+        benchmark, config = process_kernel_file(filename, workloads_ipc_tables)
+        wk_conf = (benchmark, config)
+        workloads_configs.append(wk_conf)
+        
+    workload_config_geomeans = dict()
+    #with ipcs generated, now we calculate ratio geomeans 
+    for workload, config in workloads_configs:
+        all_trace_geomean = calculate_ratio_geomean(workload, config, workloads_ipc_tables)
+        #workload_config_geomeans[(workload, config)] = geomean
+        print (f"{workload}, {config}, {all_trace_geomean}")
+    # Print the results as a space-delimited CSV row
+    #print(f"{benchmark_name},\t {config_name},\t\t {gpu_tot_sim_insn_sum},\t\t {gpu_tot_sim_cycle_sum},\t {total_ipc}")
+
+if __name__ == '__main__':
+    if len(sys.argv) < 2:
+        print("Usage: script.py filename1 [filename2 ...]")
+        sys.exit(1)
+
+    
+    print("Workload, Configuration, IPC Geomean")
+    process_kernels(sys.argv[1:])
+

@@ -1,0 +1,129 @@
+#backprop workloads 
+[[workloads]]
+name = "backprop"
+kernelslist = "/pool/connor/accel-sim-framework/hw_run/rodinia-3.1/11.0/backprop-rodinia-3.1/65536/traces/kernelslist.g"
+
+#bfs workloads 
+[[workloads]]
+name = "bfs-1MW_6"
+kernelslist = "/pool/connor/accel-sim-framework/hw_run/rodinia-3.1/11.0/bfs-rodinia-3.1/__data_graph1MW_6_txt/traces/kernelslist.g"
+
+[[workloads]]
+name = "bfs-4096"
+kernelslist = "/pool/connor/accel-sim-framework/hw_run/rodinia-3.1/11.0/bfs-rodinia-3.1/__data_graph4096_txt/traces/kernelslist.g"
+
+[[workloads]]
+name = "bfs-65536"
+kernelslist = "/pool/connor/accel-sim-framework/hw_run/rodinia-3.1/11.0/bfs-rodinia-3.1/__data_graph65536_txt/traces/kernelslist.g"
+
+#b+tree workloads 
+[[workloads]]
+name = "b+tree"
+kernelslist = "/pool/connor/accel-sim-framework/hw_run/rodinia-3.1/11.0/b+tree-rodinia-3.1/file___data_mil_txt_command___data_command_txt/traces/kernelslist.g"
+
+#dwt2d workloads
+[[workloads]]
+name = "dwt2d-192x192"
+kernelslist = "/pool/connor/accel-sim-framework/hw_run/rodinia-3.1/11.0/dwt2d-rodinia-3.1/__data_192_bmp__d_192x192__f__5__l_3/traces/kernelslist.g"
+
+[[workloads]]
+name = "dwt2d-1024x1024"
+kernelslist = "/pool/connor/accel-sim-framework/hw_run/rodinia-3.1/11.0/dwt2d-rodinia-3.1/__data_rgb_bmp__d_1024x1024__f__5__l_3/traces/kernelslist.g"
+
+#gaussian workloads 
+[[workloads]] 
+name = "gaussian-matrix208"
+kernelslist = "/pool/connor/accel-sim-framework/hw_run/rodinia-3.1/11.0/gaussian-rodinia-3.1/_f___data_matrix208_txt/traces/kernelslist.g"
+
+#gaussian workloads 
+[[workloads]] 
+name = "gaussian-matrix4"
+kernelslist = "/pool/connor/accel-sim-framework/hw_run/rodinia-3.1/11.0/gaussian-rodinia-3.1/_f___data_matrix4_txt/traces/kernelslist.g"
+
+#gaussian workloads 
+[[workloads]] 
+name = "gaussian-s16"
+kernelslist = "/pool/connor/accel-sim-framework/hw_run/rodinia-3.1/11.0/gaussian-rodinia-3.1/_s_16/traces/kernelslist.g"
+
+#gaussian workloads 
+[[workloads]] 
+name = "gaussian-s64"
+kernelslist = "/pool/connor/accel-sim-framework/hw_run/rodinia-3.1/11.0/gaussian-rodinia-3.1/_s_64/traces/kernelslist.g"
+
+#gaussian workloads 
+[[workloads]] 
+name = "gaussian-s256"
+kernelslist = "/pool/connor/accel-sim-framework/hw_run/rodinia-3.1/11.0/gaussian-rodinia-3.1/_s_256/traces/kernelslist.g"
+
+
+#hotsport workloads
+[[workloads]] 
+name = "hotspot-1024"
+kernelslist = "/pool/connor/accel-sim-framework/hw_run/rodinia-3.1/11.0/hotspot-rodinia-3.1/1024_2_2___data_temp_1024___data_power_1024_output_out/traces/kernelslist.g"
+
+
+[[workloads]] 
+name = "hotspot-512"
+kernelslist = "/pool/connor/accel-sim-framework/hw_run/rodinia-3.1/11.0/hotspot-rodinia-3.1/512_2_2___data_temp_512___data_power_512_output_out/traces/kernelslist.g"
+
+
+
+#kmeans workloads
+[[workloads]] 
+name = "kmeans-28k"
+kernelslist = "/pool/connor/accel-sim-framework/hw_run/rodinia-3.1/11.0/kmeans-rodinia-3.1/_o__i___data_28k_4x_features_txt/traces/kernelslist.g"
+
+
+[[workloads]] 
+name = "kmeans-819200"
+kernelslist = "/pool/connor/accel-sim-framework/hw_run/rodinia-3.1/11.0/kmeans-rodinia-3.1/_o__i___data_819200_txt/traces/kernelslist.g"
+
+
+[[workloads]] 
+name = "kmeans-kdd"
+kernelslist = "/pool/connor/accel-sim-framework/hw_run/rodinia-3.1/11.0/kmeans-rodinia-3.1/_o__i___data_kdd_cup/traces/kernelslist.g"
+
+
+#lud workloads
+[[workloads]] 
+name = "lud-512"
+kernelslist = "/pool/connor/accel-sim-framework/hw_run/rodinia-3.1/11.0/lud-rodinia-3.1/_i___data_512_dat/traces/kernelslist.g"
+
+[[workloads]] 
+name = "lud-256"
+kernelslist = "/pool/connor/accel-sim-framework/hw_run/rodinia-3.1/11.0/lud-rodinia-3.1/_s_256__v/traces/kernelslist.g"
+
+#myocyte workloads
+#[[workloads]] 
+#name = "myocyte"
+#kernelslist = "/pool/connor/accel-sim-framework/hw_run/rodinia-3.1/11.0/myocyte-rodinia-3.1/100_1_0/traces/kernelslist.g"
+
+#nn workloads 
+[[workloads]] 
+name = "nn"
+kernelslist = "/pool/connor/accel-sim-framework/hw_run/rodinia-3.1/11.0/nn-rodinia-3.1/__data_filelist_4__r_5__lat_30__lng_90/traces/kernelslist.g"
+
+#nw workloads
+[[workloads]] 
+name = "nw"
+kernelslist = "/pool/connor/accel-sim-framework/hw_run/rodinia-3.1/11.0/nw-rodinia-3.1/2048_10/traces/kernelslist.g"
+
+#particlefilter-float workloads
+[[workloads]] 
+name = "particlefilter_float"
+kernelslist = "/pool/connor/accel-sim-framework/hw_run/rodinia-3.1/11.0/particlefilter_float-rodinia-3.1/_x_128__y_128__z_10__np_1000/traces/kernelslist.g"
+
+#particlefilter_naive
+[[workloads]] 
+name = "particlefilter_naive"
+kernelslist = "/pool/connor/accel-sim-framework/hw_run/rodinia-3.1/11.0/particlefilter_naive-rodinia-3.1/_x_128__y_128__z_10__np_1000/traces/kernelslist.g"
+
+#pathfinder workloads
+[[workloads]] 
+name = "pathfinder"
+kernelslist = "/pool/connor/accel-sim-framework/hw_run/rodinia-3.1/11.0/pathfinder-rodinia-3.1/100000_100_20___result_txt/traces/kernelslist.g"
+
+#srad workloads
+#[[workloads]] 
+#name = "srad"
+#kernelslist = "/pool/connor/accel-sim-framework/hw_run/rodinia-3.1/11.0/srad_v1-rodinia-3.1/100_0_5_502_458/traces/kernelslist.g"

@@ -1,0 +1,5 @@
+[[workloads]]
+name = "backprop-rodinia-3.1"
+kernelslist = "/pool/connor/accel-sim-framework/hw_run/rodinia-3.1/11.0/backprop-rodinia-3.1/65536/traces/kernelslist.g"
+
+

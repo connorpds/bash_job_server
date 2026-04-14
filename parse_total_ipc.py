@@ -70,6 +70,11 @@ def calculate_ipc_improvement(workload, config, kernel_ipcs):
     else:
         return 1.0
 
+def parse_last_tot_ipc(simfile):
+    benchmark_name, config_name = extract_benchmark_and_config(simfile) 
+    total_ipc = process_simfile(simfile)
+    return total_ipc, benchmark_name, config_name
+
 def generate_kernel_improvements(simfiles):
     kernel_ipcs = dict()
     for filename in simfiles:
@@ -92,15 +97,9 @@ if __name__ == '__main__':
         print("Usage: script.py filename1 [filename2 ...]")
         sys.exit(1)
 
+    total_ipc, benchmark_name, config_name = parse_last_tot_ipc(sys.argv[1])
+    #print("Workload\t Configuration\t, IPC")
+    print(benchmark_name, config_name, total_ipc)
     
-    print("Workload\t Configuration\t, IPC Improvement")
     
-    improvements = generate_kernel_improvements(sys.argv[1:])
-    
-    for workload, config in improvements:
-        n_conf = (workload, config)
-        delta = improvements[n_conf]
-        workload = n_conf[0]
-        config = n_conf[1]
-         # Print the results as a space-delimited CSV row
-        print(f"{workload},\t {config},\t {delta}")
+   

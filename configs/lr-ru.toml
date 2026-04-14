@@ -1,0 +1,7 @@
+[[configs]]
+name = "VELRR_VELRU_L1"
+gpgpu_sim_config = "/pool/connor/accel-sim-framework/gpu-simulator/gpgpu-sim/configs/tested-cfgs/VELRR_VELRU_L1/gpgpusim.config"
+accel_sim_config = "/pool/connor/accel-sim-framework/gpu-simulator/configs/tested-cfgs/VELRR_VELRU_L1/trace.config" 
+
+
+

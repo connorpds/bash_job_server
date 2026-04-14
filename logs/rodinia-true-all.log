@@ -1,0 +1,232 @@
+STARTED
+Experiment: backprop_BASELINE		Job_PID: 540854
+STARTED
+Experiment: bfs-1MW_6_BASELINE		Job_PID: 540858
+STARTED
+Experiment: bfs-4096_BASELINE		Job_PID: 540862
+STARTED
+Experiment: bfs-65536_BASELINE		Job_PID: 540866
+STARTED
+Experiment: b+tree_BASELINE		Job_PID: 540870
+STARTED
+Experiment: dwt2d-192x192_BASELINE		Job_PID: 540874
+STARTED
+Experiment: dwt2d-1024x1024_BASELINE		Job_PID: 540878
+STARTED
+Experiment: gaussian-matrix208_BASELINE		Job_PID: 540882
+STARTED
+Experiment: gaussian-matrix4_BASELINE		Job_PID: 540886
+STARTED
+Experiment: gaussian-s16_BASELINE		Job_PID: 540890
+STARTED
+Experiment: gaussian-s64_BASELINE		Job_PID: 540894
+STARTED
+Experiment: gaussian-s256_BASELINE		Job_PID: 540898
+STARTED
+Experiment: hotspot-1024_BASELINE		Job_PID: 540902
+STARTED
+Experiment: hotspot-512_BASELINE		Job_PID: 540906
+STARTED
+Experiment: hybridsort-500k_BASELINE		Job_PID: 540910
+STARTED
+Experiment: hybridsort-r_BASELINE		Job_PID: 540914
+STARTED
+Experiment: kmeans-28k_BASELINE		Job_PID: 540918
+STARTED
+Experiment: kmeans-819200_BASELINE		Job_PID: 540923
+STARTED
+Experiment: kmeans-kdd_BASELINE		Job_PID: 540927
+STARTED
+Experiment: lavaMD_BASELINE		Job_PID: 540931
+STARTED
+Experiment: lud-512_BASELINE		Job_PID: 540935
+STARTED
+Experiment: lud-256_BASELINE		Job_PID: 540939
+STARTED
+Experiment: myocyte_BASELINE		Job_PID: 540943
+STARTED
+Experiment: nn_BASELINE		Job_PID: 540947
+STARTED
+Experiment: nw_BASELINE		Job_PID: 540951
+STARTED
+Experiment: particlefilter_float_BASELINE		Job_PID: 540955
+STARTED
+Experiment: particlefilter_naive_BASELINE		Job_PID: 540959
+STARTED
+Experiment: pathfinder_BASELINE		Job_PID: 540963
+STARTED
+Experiment: srad_BASELINE		Job_PID: 540967
+STARTED
+Experiment: backprop_VELRR_ONLY		Job_PID: 540971
+STARTED
+Experiment: bfs-1MW_6_VELRR_ONLY		Job_PID: 540975
+STARTED
+Experiment: bfs-4096_VELRR_ONLY		Job_PID: 540979
+STARTED
+Experiment: bfs-65536_VELRR_ONLY		Job_PID: 540983
+STARTED
+Experiment: b+tree_VELRR_ONLY		Job_PID: 540987
+STARTED
+Experiment: dwt2d-192x192_VELRR_ONLY		Job_PID: 540991
+STARTED
+Experiment: dwt2d-1024x1024_VELRR_ONLY		Job_PID: 540995
+STARTED
+Experiment: gaussian-matrix208_VELRR_ONLY		Job_PID: 540999
+STARTED
+Experiment: gaussian-matrix4_VELRR_ONLY		Job_PID: 541003
+STARTED
+Experiment: gaussian-s16_VELRR_ONLY		Job_PID: 541007
+STARTED
+Experiment: gaussian-s64_VELRR_ONLY		Job_PID: 541011
+STARTED
+Experiment: gaussian-s256_VELRR_ONLY		Job_PID: 541015
+STARTED
+Experiment: hotspot-1024_VELRR_ONLY		Job_PID: 541019
+STARTED
+Experiment: hotspot-512_VELRR_ONLY		Job_PID: 541023
+STARTED
+Experiment: hybridsort-500k_VELRR_ONLY		Job_PID: 541027
+STARTED
+Experiment: hybridsort-r_VELRR_ONLY		Job_PID: 541031
+STARTED
+Experiment: kmeans-28k_VELRR_ONLY		Job_PID: 541035
+STARTED
+Experiment: kmeans-819200_VELRR_ONLY		Job_PID: 541039
+STARTED
+Experiment: kmeans-kdd_VELRR_ONLY		Job_PID: 541043
+STARTED
+Experiment: lavaMD_VELRR_ONLY		Job_PID: 541047
+STARTED
+Experiment: lud-512_VELRR_ONLY		Job_PID: 541051
+STARTED
+Experiment: lud-256_VELRR_ONLY		Job_PID: 541055
+STARTED
+Experiment: myocyte_VELRR_ONLY		Job_PID: 541059
+STARTED
+Experiment: nn_VELRR_ONLY		Job_PID: 541063
+STARTED
+Experiment: nw_VELRR_ONLY		Job_PID: 541067
+STARTED
+Experiment: particlefilter_float_VELRR_ONLY		Job_PID: 541072
+STARTED
+Experiment: particlefilter_naive_VELRR_ONLY		Job_PID: 541076
+STARTED
+Experiment: pathfinder_VELRR_ONLY		Job_PID: 541080
+STARTED
+Experiment: srad_VELRR_ONLY		Job_PID: 541084
+STARTED
+Experiment: backprop_VELRU_L1		Job_PID: 541088
+STARTED
+Experiment: bfs-1MW_6_VELRU_L1		Job_PID: 541092
+STARTED
+Experiment: bfs-4096_VELRU_L1		Job_PID: 541096
+STARTED
+Experiment: bfs-65536_VELRU_L1		Job_PID: 541100
+STARTED
+Experiment: b+tree_VELRU_L1		Job_PID: 541104
+STARTED
+Experiment: dwt2d-192x192_VELRU_L1		Job_PID: 541108
+STARTED
+Experiment: dwt2d-1024x1024_VELRU_L1		Job_PID: 541112
+STARTED
+Experiment: gaussian-matrix208_VELRU_L1		Job_PID: 541116
+STARTED
+Experiment: gaussian-matrix4_VELRU_L1		Job_PID: 541123
+STARTED
+Experiment: gaussian-s16_VELRU_L1		Job_PID: 541127
+STARTED
+Experiment: gaussian-s64_VELRU_L1		Job_PID: 541131
+STARTED
+Experiment: gaussian-s256_VELRU_L1		Job_PID: 541135
+STARTED
+Experiment: hotspot-1024_VELRU_L1		Job_PID: 541139
+STARTED
+Experiment: hotspot-512_VELRU_L1		Job_PID: 541143
+STARTED
+Experiment: hybridsort-500k_VELRU_L1		Job_PID: 541761
+STARTED
+Experiment: hybridsort-r_VELRU_L1		Job_PID: 541789
+STARTED
+Experiment: kmeans-28k_VELRU_L1		Job_PID: 542581
+STARTED
+Experiment: kmeans-819200_VELRU_L1		Job_PID: 542592
+STARTED
+Experiment: kmeans-kdd_VELRU_L1		Job_PID: 542602
+STARTED
+Experiment: lavaMD_VELRU_L1		Job_PID: 546069
+STARTED
+Experiment: lud-512_VELRU_L1		Job_PID: 546447
+STARTED
+Experiment: lud-256_VELRU_L1		Job_PID: 546493
+STARTED
+Experiment: myocyte_VELRU_L1		Job_PID: 548861
+STARTED
+Experiment: nn_VELRU_L1		Job_PID: 548891
+STARTED
+Experiment: nw_VELRU_L1		Job_PID: 548947
+STARTED
+Experiment: particlefilter_float_VELRU_L1		Job_PID: 549813
+STARTED
+Experiment: particlefilter_naive_VELRU_L1		Job_PID: 549906
+STARTED
+Experiment: pathfinder_VELRU_L1		Job_PID: 550125
+STARTED
+Experiment: srad_VELRU_L1		Job_PID: 550530
+STARTED
+Experiment: backprop_VELRR_VELRU_L1		Job_PID: 551393
+STARTED
+Experiment: bfs-1MW_6_VELRR_VELRU_L1		Job_PID: 551449
+STARTED
+Experiment: bfs-4096_VELRR_VELRU_L1		Job_PID: 551949
+STARTED
+Experiment: bfs-65536_VELRR_VELRU_L1		Job_PID: 561058
+STARTED
+Experiment: b+tree_VELRR_VELRU_L1		Job_PID: 572306
+STARTED
+Experiment: dwt2d-192x192_VELRR_VELRU_L1		Job_PID: 572445
+STARTED
+Experiment: dwt2d-1024x1024_VELRR_VELRU_L1		Job_PID: 572486
+STARTED
+Experiment: gaussian-matrix208_VELRR_VELRU_L1		Job_PID: 575918
+STARTED
+Experiment: gaussian-matrix4_VELRR_VELRU_L1		Job_PID: 576835
+STARTED
+Experiment: gaussian-s16_VELRR_VELRU_L1		Job_PID: 577895
+STARTED
+Experiment: gaussian-s64_VELRR_VELRU_L1		Job_PID: 579252
+STARTED
+Experiment: gaussian-s256_VELRR_VELRU_L1		Job_PID: 579266
+STARTED
+Experiment: hotspot-1024_VELRR_VELRU_L1		Job_PID: 579708
+STARTED
+Experiment: hotspot-512_VELRR_VELRU_L1		Job_PID: 579961
+STARTED
+Experiment: hybridsort-500k_VELRR_VELRU_L1		Job_PID: 580879
+STARTED
+Experiment: hybridsort-r_VELRR_VELRU_L1		Job_PID: 581872
+STARTED
+Experiment: kmeans-28k_VELRR_VELRU_L1		Job_PID: 582480
+STARTED
+Experiment: kmeans-819200_VELRR_VELRU_L1		Job_PID: 586728
+STARTED
+Experiment: kmeans-kdd_VELRR_VELRU_L1		Job_PID: 588386
+STARTED
+Experiment: lavaMD_VELRR_VELRU_L1		Job_PID: 588771
+STARTED
+Experiment: lud-512_VELRR_VELRU_L1		Job_PID: 588930
+STARTED
+Experiment: lud-256_VELRR_VELRU_L1		Job_PID: 588937
+STARTED
+Experiment: myocyte_VELRR_VELRU_L1		Job_PID: 588970
+STARTED
+Experiment: nn_VELRR_VELRU_L1		Job_PID: 589147
+STARTED
+Experiment: nw_VELRR_VELRU_L1		Job_PID: 589177
+STARTED
+Experiment: particlefilter_float_VELRR_VELRU_L1		Job_PID: 589655
+STARTED
+Experiment: particlefilter_naive_VELRR_VELRU_L1		Job_PID: 589664
+STARTED
+Experiment: pathfinder_VELRR_VELRU_L1		Job_PID: 589703
+STARTED
+Experiment: srad_VELRR_VELRU_L1		Job_PID: 590066

@@ -1,0 +1,51 @@
+
+
+
+#hybridsort worklaods
+[[workloads]] 
+name = "hybridsort-500k"
+kernelslist = "/pool/connor/accel-sim-framework/hw_run/rodinia-3.1/11.0/hybridsort-rodinia-3.1/__data_500000_txt/traces/kernelslist.g"
+
+[[workloads]] 
+name = "hybridsort-r"
+kernelslist = "/pool/connor/accel-sim-framework/hw_run/rodinia-3.1/11.0/hybridsort-rodinia-3.1/r/traces/kernelslist.g"
+
+
+#kmeans workloads
+[[workloads]] 
+name = "kmeans-28k"
+kernelslist = "/pool/connor/accel-sim-framework/hw_run/rodinia-3.1/11.0/kmeans-rodinia-3.1/_o__i___data_28k_4x_features_txt/traces/kernelslist.g"
+
+
+[[workloads]] 
+name = "kmeans-819200"
+kernelslist = "/pool/connor/accel-sim-framework/hw_run/rodinia-3.1/11.0/kmeans-rodinia-3.1/_o__i___data_819200_txt/traces/kernelslist.g"
+
+
+[[workloads]] 
+name = "kmeans-kdd"
+kernelslist = "/pool/connor/accel-sim-framework/hw_run/rodinia-3.1/11.0/kmeans-rodinia-3.1/_o__i___data_kdd_cup/traces/kernelslist.g"
+
+#lavaMD workloads
+[[workloads]] 
+name = "lavaMD"
+kernelslist = "/pool/connor/accel-sim-framework/hw_run/rodinia-3.1/11.0/lavaMD-rodinia-3.1/_boxes1d_10/traces/kernelslist.g"
+
+#lud workloads
+[[workloads]] 
+name = "lud-512"
+kernelslist = "/pool/connor/accel-sim-framework/hw_run/rodinia-3.1/11.0/lud-rodinia-3.1/_i___data_512_dat/traces/kernelslist.g"
+
+[[workloads]] 
+name = "lud-256"
+kernelslist = "/pool/connor/accel-sim-framework/hw_run/rodinia-3.1/11.0/lud-rodinia-3.1/_s_256__v/traces/kernelslist.g"
+
+#pathfinder workloads
+[[workloads]] 
+name = "pathfinder"
+kernelslist = "/pool/connor/accel-sim-framework/hw_run/rodinia-3.1/11.0/pathfinder-rodinia-3.1/100000_100_20___result_txt/traces/kernelslist.g"
+
+#srad workloads
+[[workloads]] 
+name = "srad"
+kernelslist = "/pool/connor/accel-sim-framework/hw_run/rodinia-3.1/11.0/srad_v1-rodinia-3.1/100_0_5_502_458/traces/kernelslist.g"

@@ -1,0 +1,3 @@
+[[workloads]]
+name = "cutcp"
+kernelslist = "/pool/connor/accel-sim-framework/hw_run/parboil/11.0/parboil-cutcp/_i___data_small_input_watbox_sl40_pqr__o_lattice_dat/traces/kernelslist.g"
